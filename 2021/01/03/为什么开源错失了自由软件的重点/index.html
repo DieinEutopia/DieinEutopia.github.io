@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+  </script>
+<meta name="description" content="Richard Stallman 著 “自由软件”和“开源”基本上指的是同一范围的程序。然而，出于不同的价值观，它们对这些程序的看法大相径庭。自由软件运动为用户的计算自由而战斗；这是一个为自由和公正而战的运动。相反，开源理念重视的是实用优势而不是原则利害。我们因此不赞同开源运动，也不使用开源这个词。  要说一个软件是“自由”的，这意味着它尊重用户的基本自由：自由地运行这个软件，学习和修改它，以及重">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为什么开源错失了自由软件的重点">
+<meta property="og:url" content="http://example.com/2021/01/03/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%80%E6%BA%90%E9%94%99%E5%A4%B1%E4%BA%86%E8%87%AA%E7%94%B1%E8%BD%AF%E4%BB%B6%E7%9A%84%E9%87%8D%E7%82%B9/index.html">
+<meta property="og:site_name" content="DieinEutopia">
+<meta property="og:description" content="Richard Stallman 著 “自由软件”和“开源”基本上指的是同一范围的程序。然而，出于不同的价值观，它们对这些程序的看法大相径庭。自由软件运动为用户的计算自由而战斗；这是一个为自由和公正而战的运动。相反，开源理念重视的是实用优势而不是原则利害。我们因此不赞同开源运动，也不使用开源这个词。  要说一个软件是“自由”的，这意味着它尊重用户的基本自由：自由地运行这个软件，学习和修改它，以及重">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-03T12:07:38.000Z">
+<meta property="article:modified_time" content="2021-01-31T12:50:41.913Z">
+<meta property="article:author" content="DieinEutopia">
+<meta property="article:tag" content="自由软件">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/01/03/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%80%E6%BA%90%E9%94%99%E5%A4%B1%E4%BA%86%E8%87%AA%E7%94%B1%E8%BD%AF%E4%BB%B6%E7%9A%84%E9%87%8D%E7%82%B9/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>为什么开源错失了自由软件的重点 | DieinEutopia</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DieinEutopia</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一刀可将生命断，万枪难使真理屈</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Richard-Stallman-%E8%91%97"><span class="nav-number">1.</span> <span class="nav-text">Richard Stallman 著</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E8%B7%B5%E4%B8%AD%EF%BC%8C%E5%BC%80%E6%BA%90%E4%B8%8E%E8%87%AA%E7%94%B1%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number"></span> <span class="nav-text">实践中，开源与自由软件的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E2%80%9C%E8%87%AA%E7%94%B1%E8%BD%AF%E4%BB%B6%E2%80%9D%E5%92%8C%E2%80%9C%E5%BC%80%E6%BA%90%E2%80%9D%E7%9A%84%E5%B8%B8%E8%A7%81%E8%AF%AF%E8%A7%A3"><span class="nav-number"></span> <span class="nav-text">关于“自由软件”和“开源”的常见误解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BB%B7%E5%80%BC%E8%A7%82%E5%8F%AF%E4%BB%A5%E5%BE%97%E5%88%B0%E7%B1%BB%E4%BC%BC%E7%9A%84%E7%BB%93%E8%AE%BA%E2%80%94%E2%80%94%E5%8F%AF%E6%83%9C%E6%80%BB%E6%9C%89%E4%BE%8B%E5%A4%96"><span class="nav-number"></span> <span class="nav-text">不同的价值观可以得到类似的结论——可惜总有例外</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%BA%E5%A4%A7%E8%80%8C%E5%8F%AF%E9%9D%A0%E7%9A%84%E8%BD%AF%E4%BB%B6%EF%BC%8C%E6%9C%AA%E5%BF%85%E6%98%AF%E4%B8%AA%E5%A5%BD%E4%B8%9C%E8%A5%BF"><span class="nav-number"></span> <span class="nav-text">强大而可靠的软件，未必是个好东西</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A4%E4%BA%BA%E7%94%9F%E7%95%8F%E7%9A%84%E8%87%AA%E7%94%B1"><span class="nav-number"></span> <span class="nav-text">令人生畏的自由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%80%9CFLOSS%E2%80%9D%E5%92%8C%E2%80%9CFOSS%E2%80%9D"><span class="nav-number"></span> <span class="nav-text">“FLOSS”和“FOSS”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E6%83%B3%E7%9A%84%E5%AF%B9%E6%89%8B"><span class="nav-number"></span> <span class="nav-text">思想的对手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number"></span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8"><span class="nav-number">1.</span> <span class="nav-text">注:</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DieinEutopia"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">DieinEutopia</p>
+  <div class="site-description" itemprop="description">Record & Backup</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/DieinEutopia" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DieinEutopia" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:DieinEutopia1999@protonmail.com" title="E-Mail → mailto:DieinEutopia1999@protonmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/03/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%80%E6%BA%90%E9%94%99%E5%A4%B1%E4%BA%86%E8%87%AA%E7%94%B1%E8%BD%AF%E4%BB%B6%E7%9A%84%E9%87%8D%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="DieinEutopia">
+      <meta itemprop="description" content="Record & Backup">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DieinEutopia">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          为什么开源错失了自由软件的重点
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="Richard-Stallman-著"><a href="#Richard-Stallman-著" class="headerlink" title="Richard Stallman 著"></a><strong>Richard Stallman 著</strong></h3><blockquote>
+<p><em>“自由软件”和“开源”基本上指的是同一范围的程序。然而，出于不同的价值观，它们对这些程序的看法大相径庭。自由软件运动为用户的计算自由而战斗；这是一个为自由和公正而战的运动。相反，开源理念重视的是实用优势而不是原则利害。我们因此不赞同开源运动，也不使用开源这个词。</em></p>
+</blockquote>
+<p>要说一个软件是“自由”的，这意味着它尊重用户的基本自由：自由地运行这个软件，学习和修改它，以及重新发布它的原版或修改版。这是个关于自由权利的问题，而非价格高低。我们讨论的自由是如同自由言论般的权利，不是免费赠饮一样的大派送。</p>
+<p>这几样自由是至关重要的。之所以说它们重要，不仅仅因为它们可以讨好哪个用户，更是由于它们维系着整个社会的凝聚力—具体说来，就是分享与协作的精神。随着我们的生活与文化日渐数字化，这样的自由精神也随之越来越可贵。在一个充斥着数字化音像与文字的世界中，自由软件日益重要，它本身已经成为关乎着我们基本自由的因素之一。</p>
+<p>当今世界中，成百上千万的用户正在使用着自由软件；在印度和西班牙某些地区的公立学校里，全体学生都学习如何使用自由的GNU/Linux操作系统。然而，这些用户之中，大多数人却并不了解我们为何开发这个自由系统，又为何建立起整个自由软件社区，以及背后驱动这一切的道义上的逻辑。因为如今这个自由系统，乃至整个社区都被以“开源”一词以蔽之。顺着这个词，一切都被引入了一个完全不同的思维之中。在那里，自由这东西，甚少提及。</p>
+<p>从1983年起，我们以维护计算机用户自由之名兴起了自由软件运动。在1984年，我们发起了开发自由操作系统的计划，并将此系统命名为GNU。借此系统，我们就不必依赖非自由的操作系统，不再坐视它们肆意剥夺用户的自由。在二十世纪八十年代，我们开发了系统的绝大多数组件。为了保护用户的自由，我们设计了GNU通用公共许可证（GNU GPL），并以该许可证发行大部分组件。</p>
+<p>并非全部的自由软件用户和开发者都赞同自由软件运动的目标。1998年，自由软件阵营中的部分成员分裂出来，并以“开源”为名继续开展活动。一开始，由于“自由软件”（free software）一词可能引起歧义，这才提出开源这个说法。但是很快开源这词便开始异化，使得其背后的逻辑与自由软件运动的初衷相去甚远。</p>
+<p>一些开源的支持者会认为，所谓开源，无非是用来“为自由软件做市场营销”的。具体说来，就是向那些商界人士展现自由软件的实际好处。同时避免谈及什么对错正误，因为商业大佬们普遍不太喜欢这调调。还有一些开源的支持者干脆就抛弃自由软件的道德观和社会价值。无论他们持哪种观点，一旦他们开始为开源营销的时候，自由软件运动所珍视的那些价值观就被抛诸脑后。于是，“开源”一词很快就单纯地和各种实用主义的价值观联系起来。比如说怎么能创造一个强大、稳定的软件。很多开源支持者从一开始就把这些价值观推崇至极，也难怪局外人会有如此联系了。大多数“开源”的讨论都绝口不谈是非对错，而只是讨论流行与成功；请看一个具体的实例。现在，少数开源的支持者也把自由作为一个问题来讨论，但是他们的影响好似沧海一粟。</p>
+<p>开源软件和自由软件这两个词在很大程度上描述的是同一类软件，但是它们所基于的价值观却有着本质上的区别。对于自由软件运动而言，自由软件是一个道德底线，是对用户自由的基本尊重。开源软件则与此不同，开源哲学考虑的是怎么做把软件做得“更好”—仅仅从实用的角度。开源的哲学里，非自由软件之所以不好，是因为他们采用了一种劣等的开发方式。</p>
+<p>然而，对自由软件运动来说，非自由软件是一个社会问题，其解决方法是停止使用非自由软件并开始使用自由软件。</p>
+<p>“自由软件”，“开源软件”，既然都指的是同类软件（或基本是同类软件），那何必在名字上这么较真呢？有这个必要的。因为不同的词汇传递着不同的思维。尽管现在看来，用另一个名字称呼自由软件可以给你同等的自由，但若要长期维护用户的自由，则必须让人们意识到自由的价值。倘若你想帮助人们做到这点，那么使用“自由软件”这一称呼则尤为重要。</p>
+<p>作为自由软件运动的成员，我们并不将开源阵营视为敌人。我们的敌人是专有（非自由）软件。但我们希望人们至少应该知道，我们所捍卫的是用户的自由。所以我们不愿被开源支持者们贴错标签。我们倡导的并不是 “开源”，我们反对的也不是 “闭源”。为了清楚起见，我们要避免使用这些词汇。</p>
+<h2 id="实践中，开源与自由软件的区别"><a href="#实践中，开源与自由软件的区别" class="headerlink" title="实践中，开源与自由软件的区别"></a>实践中，开源与自由软件的区别</h2><p>在实践中，开源的要求比自由软件宽松一些。据我们所知，迄今发布的自由软件源代码都是开源软件。尽管大多数开源软件也同样是自由软件，但会有一些例外。首先，有些开源许可证对用户过于苛刻，它们就没有被列为自由软件。比如，“Open Watcom”就非自由的，因为其许可证不允许修改该软件和私自使用该软件。幸运的是，很少软件会使用这些许可证。</p>
+<p>其次，当一个程序的源代码使用的是弱许可证，而非 copyleft，那么其可执行文件就能够附加额外的非自由条款。例如，微软对 Visual Studio 就采取了这样的办法。</p>
+<p>如果这些可执行文件完全和发布的源代码对应，那么它们是合格的开源软件，但不是自由软件。不过，在这种情况下，用户可以编译源代码来制作和发布可执行文件。</p>
+<p>最后，实际操作时还有最重要的一点，很多产品带有检测可执行文件签名功能的计算机，它会禁止用户安装另外不同的可执行文件；而只有一家特权公司才能生产可执行文件或完全控制该产品。我们把这种设备称作“tyrants”，即“专制暴君”；把这种行为称为“tivoization”，该名称来自我们首先看到TiVo公司使用该方法发布产品。在这样的产品上运行的可执行软件，哪怕是以自由软件许可证的名义发布了源代码，但是用户却无法运行修改后的可执行文件，所以其可执行文件不是自由软件。</p>
+<p>许多Android产品就包含非自由Linux可执行文件（tivoization），即使其源代码是按照 GNU GPL 2 发布的。我们设计了 GNU GPL 3 来防止这样做。</p>
+<p>开源的标准没有意识到这个问题；它们只关心源代码的许可证。这样以来，这些编译自诸如Linux等开源和自由软件的可执行文件，原封未动，是开源的，但不是自由的。</p>
+<h2 id="关于“自由软件”和“开源”的常见误解"><a href="#关于“自由软件”和“开源”的常见误解" class="headerlink" title="关于“自由软件”和“开源”的常见误解"></a>关于“自由软件”和“开源”的常见误解</h2><p>在英语中，“自由软件”，即Free Software，这个词很容易被误解：Free一词既有免费的意思，也有自由的意思。而我们所谓的自由软件，则是“一类可以赋予用户指定自由的软件”。要解决这个问题，我们发布了自由软件的定义。为了方便理解，我们解释自由软件中Free，是自由言论中所说的自由，而非免费赠饮中的免费。这显然不是个理想的解决方案，它无法完全杜绝这一问题。一个意思正确，又没有歧异的词显然更好些，不过前提是这词不会引起其他麻烦。</p>
+<p>可惜的是，在英语中，能替换Free的词都多少有点毛病。我们考量了许多别人的建议，然而没有哪个比其他的更”正确“点（比如说，在某些情况下，法语和西班牙语中的“libre”一词更好点。可是印度的人就根本不认识这个词）。每个可能替代“Free Software”的词多少都会有些语义方面的问题—这显然也包括“开源软件”（Open Source Software）。</p>
+<p>“开源软件”的官方定义（它是由开源促进会发布的，鉴于这个定义过长，就不在本文中全部引用了）是直接从我们对于自由软件的界定衍生而来。不过二者也有不同，在某些方面，开源软件的定义比自由软件更宽松。不过总体而言，开源软件的定义和我们自由软件的定义在很多地方都是等价的。</p>
+<p>可是，“开源软件”的字面意思—同样也是人们普遍以为的意思—是“你可以看到源代码”。这样的意思比起自由软件定义来说要宽松的多，也比开源软件的定义宽松多。这样的字面意思囊括了很多既非自由也非开源的软件。</p>
+<p>由于“开源”一词的字面意思与开源支持者的本意不同，导致很多人误解了这个词。这里引用一段Neal Stephenson文章中的话，“Linux是‘开源’软件，意思很简单，就是任何人都可以获得它的源代码”。我觉得Stephenson先生并非有意拒绝或者曲解开源软件的官方定义。恐怕他仅仅是望文生义，可惜误会了开源这词。堪萨斯州政府也曾发布了一份开源软件的简化定义：“开源软件（OSS）即一类计算机软件，用户可以免费且公开地获得其源代码；用户可以对其源代码做哪些操作，则根据软件的许可证规定各有不同。”</p>
+<p>还有更糟糕的，纽约时报发表了一篇文章，把开源这词的意思完全拧了，文中将开源软件解释为内测版软件—就是给一小撮用户做测试并获得内部反馈的抢先版软件—这东西专有软件开发者在几十年前就发布过了。</p>
+<p>这个概念甚至被延伸到一个无需专利的产品设计中。无需专利的产品设计对社会是一个很大的贡献，但是“源代码”一词和它们没有关系。</p>
+<p>开源的支持者们试图通过不断引用官方定义来解决这些误会。这方法显然没错，可直接引述定义对自由软件似乎更有效。“Free Software”一词字面上有两个意思，其中的自由之意是我们希望传达的。一个人如果能理解“自由言论而非免费赠饮”这句话，就不会再搞错该使用Free的哪个意项。然而，“开源”一词仅仅有一个字面意思，而这个意思与其本身要表达的意思又有所不同。结果就很难找一个简单的方法解释官方的定义。这就带来了更多的误解。</p>
+<p>另外一个关于“开源”的误解是：开源软件意味着“不用GNU GPL许可证”。这个误解又常常伴随着另外一个误解：“自由软件就是使用GPL许可证的软件”。这显然是扭曲了自由软件和开源软件。GNU GPL许可证也被认证为开源软件许可证。很多开源软件许可证也同时是自由软件许可证。除了GPL以外，还有很多自由软件许可证。</p>
+<p>“开源”一词又一再地被引申到了各个领域，比如政府部门，教育，科学还有其他压根没有源代码的地方，以及和软件许可证根本扯不上关系的领域。它们唯一的共同点是：多多少少都是鼓励人们参与到某个活动中来。到头来，开源这词就被引申成了“参与性”，或者是“透明性”，或者还不如这些。最可悲的解释，则完全成了一个虚幻的商业流行词。</p>
+<h2 id="不同的价值观可以得到类似的结论——可惜总有例外"><a href="#不同的价值观可以得到类似的结论——可惜总有例外" class="headerlink" title="不同的价值观可以得到类似的结论——可惜总有例外"></a>不同的价值观可以得到类似的结论——可惜总有例外</h2><p>二十世纪六十年代，美国的极左派阵营曾由于意见分歧而党羽林立。尽管他们实际上有着相同的目的和价值观，但各个派别之间依旧水火不容，关系紧张。这使得右翼势力得以借力打力，进而攻击整个左派阵营。</p>
+<p>由于自由软件和开源阵营存在的这种分歧，有些人就用美国极左阵营的例子，来告诫或是诋毁自由软件运动。不过现在的情况和当初极左阵营的情况正好相反：我们和开源软件阵营有着不同的目的和价值观，不过不同的观点却导致了很多相同行为—比如说开发自由软件。</p>
+<p>于是大家看到的结果就是：来自自由软件运动的人和来自开源阵营的人经常一起在同一个项目中一起工作，比如一起开发软件。这是值得一提的：尽管大家观点不同，但却可能在同一个项目中工作。当然，我们和开源阵营各自不同的观点有些时候也可能会导致不同的行为。</p>
+<p>开源的基本思路是：允许用户修改和再发布软件，是为了让软件更加强大和可靠。可惜这不是个必要条件。很多专有软件的开发者技术也很强。有些时候，哪怕专有软件不尊重用户的自由，依然可以开发出强大而可靠的软件。对于这个事实，自由软件支持者和开源阵营的人对此反应就会不同。</p>
+<p>对于一个纯粹的开源狂热者来说—假设他没有被自由软件的理想所影响—可能会说，“你们（专有软件开发者）竟然没用我们的开发模型，还能开发出这么好的软件。这太让我感到意外了。能给我拷一份你们的软件吗？” 这样的态度会让专有软件的诡计得逞—剥夺我们的自由。</p>
+<p>而自由软件支持者则会说，“您的软件非常吸引人，不过我更看重我的自由。很遗憾，我不得不放弃使用您的软件。我会用其他的方法完成我的工作，并支持一个实现类似功能的自由软件项目。”你若真心珍视你的自由，我们就可以用行动去捍卫它。</p>
+<h2 id="强大而可靠的软件，未必是个好东西"><a href="#强大而可靠的软件，未必是个好东西" class="headerlink" title="强大而可靠的软件，未必是个好东西"></a>强大而可靠的软件，未必是个好东西</h2><p>大家都希望软件强大而可靠，因为我们都觉得软件是为用户服务的。既然是为用户服务的，那强大而可靠的软件显然可以更好地服务用户。</p>
+<p>但是必须要明确，只有当软件尊重用户的自由时，我们才说软件是在为用户服务。倘若软件本身就有意剥夺用户自由，为其设置各种障碍，那么如此的软件更强大仅仅意味着更多的羁绊，更可靠也就意味着这些障碍难以克服。现实生活中，恶意流氓的功能在专有软件中比比皆是：监视用户，限制用户，后门，强制升级等等。而一些开源软件支持者们竟希望在他们的开源软件中实现类似功能。</p>
+<p>迫于电影和唱片公司的压力，越来越多的个人软件被设计得有意限制用户的行为。这种恶意功能的官方讲法是数字版权管理（参见DefectiveByDesign.org）。这种功能与自由软件的核心精神完全背道而驰。说起来，这已然不仅是精神层面背道而驰了，在实际操作上，DRM 的开发者们试图让用户无法修改软件，甚至将此视为违法行为。</p>
+<p>尽管如此，一些开源软件的支持者们依然提议开发所谓“开源DRM”软件。这背后的逻辑是：发布这些限制用户自由的软件的源代码，并且允许用户修改它，就可以造出更强大可靠的软件，来继续限制用户的自由。然后，这些软件会被拷贝到某个设备上一并卖到你手里，而那个设备则禁止你修改运行其上的软件。</p>
+<p>这样的软件也许称得上是开源软件，并且也的确用的是开源的开发模式。但是它不可能成为自由软件，因为它根本没有尊重用户的自由。倘若说开源的开发模式可以成功地制造如此软件，并且让这些软件更强大更可靠，进而限制你我的自由，那只能说这次开源把一切变得更糟了。</p>
+<h2 id="令人生畏的自由"><a href="#令人生畏的自由" class="headerlink" title="令人生畏的自由"></a>令人生畏的自由</h2><p>当年那些人之所以从自由软件运动中分裂出来，发起开源软件运动，主要原因就是因为“自由软件”的道德基础让不少人如坐针毡。的确如此，倘若说起道德，比如用户的自由，开发者的责任等等，往往会迫使人们去思考一些常被忽视的问题，好比说某些行为是否符合道德规范。这种说教确实会让人心生不快，有些人则因此把它们抛诸脑后，从此不闻不问。但这并非意味着，每当论及道德，我们就该退避三舍，闭口不谈。</p>
+<p>遗憾的是，开源的领导者们恰恰是选择忽视了这些问题。他们意识到，只要在道德和自由方面装聋作哑，转而只讨论某些自由软件当下可以创收多少效益，就没准能让他们更高效地“卖”软件给一些特定用户，尤其是商业用户。</p>
+<p>当开源支持者讨论到这些更深层次的问题时，他们通常的想法就是把源代码作为人类的“礼物”。假定专有软件不发布源代码在道义上是合法的，那么开源是一件好事，它超出了道义的要求。</p>
+<p>从这套理论的观点看，这方法倒也真算行之有效了。开源这词说服了众多商业和个人用户，使得他们开始使用，甚至开发自由软件，由此扩大了我们的社区。然而如此的扩张仅仅是表面上的，停留在仅仅关注实用的层次上。由于开源的哲学仅仅停留在实用层面，进而阻碍了人们理解自由软件更深层次的含义。它为我们的社区添加了新鲜血液，却没能教会那些新人如何维持这样一个社区。至此为止，倒也还好，但它还不足以捍卫自由。把用户吸引到自由软件社区来，仅仅是万里长征的第一步，他们还需要懂得去成为自己自由的维护者。</p>
+<p>这些没能理解自由软件含义的用户，早晚会出于某些实用角度的考虑，再转投专有软件。无数的软件公司已经开始做出这样的尝试吸引用户使用专有软件，哪怕是发行免费的专有软件。用户只有在懂得珍视自由软件赋予他们的自由之后，才会拒绝如此诱惑。所以，我们必须反复强调自由，才能渐渐扩散自由的理念。“保持沉默”的信条在商业化的过程中可能会有用，但过分强调它，让热爱自由被视为自私，则会害了整个社区。</p>
+<p>如此的危机恰恰是我们当前面临的。众多参与自由软件社区的人们，尤其是自由软件的发行商们，对于自由总是闭口不谈—往往是因为他们想要“在商业上被认可”。几乎所有GNU/Linux的发行版都会在其基础版中搀入专有软件。它们甚至将此宣传为一种优势，而非缺陷。</p>
+<p>带有专有插件的软件，和含有专有软件的GNU/Linux发行版之所以有生存和发展的空间，就是因为我们社区中大多数人并没有坚守自己的自由。这并非巧合。大多数GNU/Linux用户是被“开源”一词吸引而来，而开源则没有把维护用户自由作为其目标。无视自由的言论口口相传，漠视自由的态度比比皆是。人人如此，互相影响。要扭转这样的局势，我们唯一能做的，就是更多地谈论自由，而非把它搁置一边。</p>
+<h2 id="“FLOSS”和“FOSS”"><a href="#“FLOSS”和“FOSS”" class="headerlink" title="“FLOSS”和“FOSS”"></a>“FLOSS”和“FOSS”</h2><p>“FLOSS”和“FOSS”作为中立于自由软件和开源的术语使用。如果你希望中立，“FLOSS”更好些，因为它确实中立。但是你如果支持自由，使用中立的术语是不对的。捍卫自由需要你向人们展示你对自由的支持。</p>
+<h2 id="思想的对手"><a href="#思想的对手" class="headerlink" title="思想的对手"></a>思想的对手</h2><p>“自由”和“开放”是一对思想的对手。“自由软件”和“开源”却是不同的概念，虽然从大多数人看待软件的眼光来看，它们讨论的是同一个概念。当人们习惯于用“开源”表达和思考时，他们对自由软件运动哲学的理解和思考就受到了阻碍。如果他们已经把我们以及我们的软件和“开放”一词关联起来，那么在他们意识到我们的立场有所不同之前，我们就应该在思想上为他们敲响警钟。一切宣传“开放”一词的活动都会倾向于遮掩自由软件运动的意义。</p>
+<p>所以，自由软件活动家都会被建议不要参与自称“开放”的活动。即使该活动本身是好的，你的每次参与都会由于推动了开源的概念而伤害到自由软件运动。有许多活动是“自由”或“libre。”你的每次参与都会对自由软件运动是正面的支持。有这么多项目可选，为什么不选那些多些正面支持的呢？</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>开源的支持者们把一个个用户拉入他们的阵营，而提醒用户维护自由的任务，则落到了我们自由软件支持者们的肩膀上。我们要敢于用比以往更大的声音说“这是自由软件，它才是真正尊重你的自由的软件！”—每当你把“开源软件”一词替换成“自由软件”的时候，你就是在支持我们的理念。</p>
+<h3 id="注"><a href="#注" class="headerlink" title="注:"></a>注:</h3><p>Lakhani和Wolf在关于自由软件开发者动机的论文中提到，很大一部分开发者都认为软件本该自由，由此才参与开发自由软件的。可惜他们的调查的是SourceForge上的开发者，而SourceForge网站本身则并不认为软件自由是个伦理问题。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%87%AA%E7%94%B1%E8%BD%AF%E4%BB%B6/" rel="tag"># 自由软件</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/07/01/%E5%85%B3%E4%BA%8E%E6%9C%9D%E4%BF%AE%E9%9B%86%E5%9B%A2/" rel="prev" title="关于朝修集团">
+                  <i class="fa fa-chevron-left"></i> 关于朝修集团
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/01/30/%E5%B7%A6%E5%9C%88%E5%BE%80%E4%BA%8B/" rel="next" title="左圈往事">
+                  左圈往事 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DieinEutopia</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">49k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">45 分钟</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+  
+
+
+
+
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'none'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+</body>
+</html>
