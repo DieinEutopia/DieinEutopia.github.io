@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"dieineutopia.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+  </script>
+<meta name="description" content="假设市场存在大量企业，且它们都是同质的（即生产的商品是一样的，所以这些企业可以由一个企业代表所有），生产函数为：$Y(t)&#x3D;F(K(t), A(t) L(t))$，$A(t)$ 外生给定，与solow模型中一样，其增长率为g。生产函数为一齐次函数。企业是价格接受者，在要素市场租用资本和雇佣工人，在产品市场销售生产的商品。 假设企业的股份被家庭拥有，故企业的利润被家庭所占有。将生产的商品的价格单位化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RCK模型-企业行为">
+<meta property="og:url" content="https://dieineutopia.github.io/2019/03/02/RCK%E6%A8%A1%E5%9E%8B-%E4%BC%81%E4%B8%9A%E8%A1%8C%E4%B8%BA/index.html">
+<meta property="og:site_name" content="DieinEutopia">
+<meta property="og:description" content="假设市场存在大量企业，且它们都是同质的（即生产的商品是一样的，所以这些企业可以由一个企业代表所有），生产函数为：$Y(t)&#x3D;F(K(t), A(t) L(t))$，$A(t)$ 外生给定，与solow模型中一样，其增长率为g。生产函数为一齐次函数。企业是价格接受者，在要素市场租用资本和雇佣工人，在产品市场销售生产的商品。 假设企业的股份被家庭拥有，故企业的利润被家庭所占有。将生产的商品的价格单位化">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-03-01T17:32:33.000Z">
+<meta property="article:modified_time" content="2021-02-04T10:26:43.861Z">
+<meta property="article:author" content="DieinEutopia">
+<meta property="article:tag" content="宏观经济学">
+<meta property="article:tag" content="最优经济增长模型">
+<meta property="article:tag" content="RCK模型">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://dieineutopia.github.io/2019/03/02/RCK%E6%A8%A1%E5%9E%8B-%E4%BC%81%E4%B8%9A%E8%A1%8C%E4%B8%BA/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>RCK模型-企业行为 | DieinEutopia</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DieinEutopia</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一刀可将生命断，万枪难使真理屈</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DieinEutopia"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">DieinEutopia</p>
+  <div class="site-description" itemprop="description">Record & Backup</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/DieinEutopia" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;DieinEutopia" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:DieinEutopia1999@protonmail.com" title="E-Mail → mailto:DieinEutopia1999@protonmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dieineutopia.github.io/2019/03/02/RCK%E6%A8%A1%E5%9E%8B-%E4%BC%81%E4%B8%9A%E8%A1%8C%E4%B8%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="DieinEutopia">
+      <meta itemprop="description" content="Record & Backup">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DieinEutopia">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          RCK模型-企业行为
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-03-02 01:32:33" itemprop="dateCreated datePublished" datetime="2019-03-02T01:32:33+08:00">2019-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>864</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>假设市场存在大量企业，且它们都是同质的（即生产的商品是一样的，所以这些企业可以由一个企业代表所有），生产函数为：$Y(t)=F(K(t), A(t) L(t))$，$A(t)$ 外生给定，与solow模型中一样，其增长率为g。生产函数为一齐次函数。企业是价格接受者，在要素市场租用资本和雇佣工人，在产品市场销售生产的商品。</p>
+<p>假设企业的股份被家庭拥有，故企业的利润被家庭所占有。将生产的商品的价格单位化，即令$P(t) \equiv 1$ ，企业租用资本的利率为 $r(t)$，雇佣工人的工资为 $W(t)$，这两个变量都是外生的。</p>
+<p>那么，一个代表性企业的利润最大化的行为由下式给出：</p>
+<p>$\max \pi(t)=Y(t)-(r(t)+\delta) K(t)-W(t) L(t)$</p>
+<p>将生产函数带入上式得：</p>
+<p>$\max \pi(t)=F(K(t)$, </p>
+<p>$A(t) L(t))-(r(t)+\delta) K(t)-W(t) L(t)$</p>
+<p>一阶求导：</p>
+<p>对K：$F_{K}(K(t), A(t) L(t))=r(t)+\delta$； </p>
+<p>对L：$F_{L}(K(t), A(t) L(t))=W(t)$ </p>
+<p>由于$F_{K}(K(t)$, $A(t) L(t))=f^{\prime}(k(t))$ </p>
+<p>且$F_{L}(K(t)$, </p>
+<p>$A(t) L(t))=A\left[f\left(k(t)-k(t) f^{\prime}(k(t))\right)\right]$</p>
+<p>那么有: </p>
+<p>$f^{\prime}(k(t))=r(t)+\delta$ ;<br>$w(t)=f(k(t))-k(t) f^{\prime}(k(t))-(1)$</p>
+<p>其中, $w(t)=\frac{W(t)}{A(t)}$ 称为单位有效劳动的工资, 资本折旧率 $\delta \in(0,1)$  </p>
+<p>由齐次函数的欧拉定理得，</p>
+<p>$\frac{\partial F(K(t), A(t) L(t))}{\partial K}+\frac{\partial F(K(t), A(t) L(t))}{\partial L}=F(K(t)$,   </p>
+<p>$A(t) L(t))$</p>
+<p>那么利润最大化时企业的利润 $\pi(t)=0$</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag"># 宏观经济学</a>
+              <a href="/tags/%E6%9C%80%E4%BC%98%E7%BB%8F%E6%B5%8E%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8B/" rel="tag"># 最优经济增长模型</a>
+              <a href="/tags/RCK%E6%A8%A1%E5%9E%8B/" rel="tag"># RCK模型</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/12/08/%E5%8C%97%E5%8F%99%E5%9B%BD%E9%99%85%E5%BF%97%E6%84%BF%E7%BB%84%E7%BB%87%E6%B4%BE%E7%B3%BB%E7%AE%80%E4%BB%8B/" rel="prev" title="北叙国际志愿者统战谱系图（简介）">
+                  <i class="fa fa-chevron-left"></i> 北叙国际志愿者统战谱系图（简介）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/03/10/RCK%E6%A8%A1%E5%9E%8B-%E5%AE%B6%E5%BA%AD%E8%A1%8C%E4%B8%BA/" rel="next" title="RCK模型-家庭行为">
+                  RCK模型-家庭行为 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DieinEutopia</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">84k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:16</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+  
+
+
+
+
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'none'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+</body>
+</html>
