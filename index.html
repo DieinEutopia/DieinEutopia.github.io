@@ -278,14 +278,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
+      <span>2.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -306,17 +306,33 @@
 </ul>
 <p>故下述笔记中的 * 皆由 “ 代替之。</p>
 </blockquote>
-<h2 id="稳态的存在性："><a href="#稳态的存在性：" class="headerlink" title="稳态的存在性："></a>稳态的存在性：</h2><p>定义稳态为 $\left(c^{*}, k^{*}\right)$, 满足 $c^{\prime}(t)=0$, $\quad k^{\prime}(t)=0$ 即  </p>
+<h2 id="稳态的存在性"><a href="#稳态的存在性" class="headerlink" title="稳态的存在性"></a>稳态的存在性</h2><p>定义稳态为 $\left(c^{*}, k^{*}\right)$, 满足 $c^{\prime}(t)=0$, $\quad k^{\prime}(t)=0$ 即  </p>
 <p>$\frac{1}{\theta}\left[f^{\prime}\left(k^{*}\right)-(\rho+\theta g+\delta)\right]c^{*}=0$  </p>
 <p>$f\left(k^{*}\right)=c^{*}+(n+g+\delta) k^{*}$</p>
 <p>这两个式子明显可以求出一个非零解，故稳态存在。</p>
-<h2 id="稳态的稳定性："><a href="#稳态的稳定性：" class="headerlink" title="稳态的稳定性："></a>稳态的稳定性：</h2><p>动态系统的解的稳定性一般有两种方法，一种是几何法，即根据动态系统方程作出相形图；第二种是泰勒展开，线性逼近。（以线性化方法为例）</p>
-<p>一阶泰勒展开：<br>$c^{\prime}(t)=\frac{1}{\theta}\left[f^{\prime}(k(t))-(\rho+\theta g+\delta)\right] c(t) \equiv \phi(c, k)$  </p>
-<p>$\simeq \phi\left(c^{*}, k^{*}\right)+\phi_{c}\left(c^{*}, k^{*}\right)\left(c-c^{*}\right)+\phi_{k}\left(c^{*}, k^{*}\right)\left(k-k^{*}\right)$  </p>
-<p>$=0+\underbrace{\frac{1}{\theta}\left[f^{\prime}\left(k^{*}\right)-(\rho+\theta g+\delta)\right]}\left(c-c^{*}\right)+\frac{1}{\theta} f^{\prime \prime}\left(k^{*}\right) c^{*}\left(k-k^{*}\right)$  </p>
+<h2 id="稳态的稳定性"><a href="#稳态的稳定性" class="headerlink" title="稳态的稳定性"></a>稳态的稳定性</h2><p>动态系统的解的稳定性一般有两种方法，一种是几何法，即根据动态系统方程作出相形图；第二种是泰勒展开，线性逼近。（以线性化方法为例）</p>
+<p>一阶泰勒展开：  </p>
+<p>$c^{\prime}(t)=\frac{1}{\theta}\left[f^{\prime}(k(t))-(\rho+\theta g+\delta)\right] c(t) \equiv \phi(c, k)$  </p>
+<p>$\simeq \phi\left(c^{*}, k^{*}\right)+\phi_{c}\left(c^{*}, k^{*}\right)\left(c-c^{*}\right)$<br>+$\phi_{k}\left(c^{*}, k^{*}\right)\left(k-k^{*}\right)$  </p>
+<p>$=0+\underbrace{\frac{1}{\theta}\left[f^{\prime}\left(k^{*}\right)-(\rho+\theta g +\delta)\right]}\left(c-c^{*}\right)$<br>+$\frac{1}{\theta} f^{\prime \prime}\left(k^{*}\right) c^{*}\left(k-k^{*}\right)$  </p>
 <p>$=0\left(c-c^{*}\right)+\frac{1}{\theta} f^{\prime\prime}\left(k^{*}\right) c^{*}\left(k-k^{*}\right)$ </p>
-<p>这两个方程可简化由矩阵表示：</p>
-<p>$\left[\begin{array}{c}c^{\prime}(t) \\ k^{\prime}(t)\end{array}\right]=\left[\begin{array}{cc}0 &amp; \frac{1}{\theta} f^{\prime \prime}\left(k^{*}\right) c^{*} \\ -1 &amp; \beta\end{array}\right]\left[\begin{array}{c}c-c^{*} \\ k-k^{*}\end{array}\right] \equiv J\left[\begin{array}{c}c-c^{*} \\ k-k^{*}\end{array}\right]$</p>
+<p>这两个方程可简化由矩阵表示：  </p>
+<p>$\left[\begin{array}{c}c^{\prime}(t) \\ k^{\prime}(t)\end{array}\right]=\left[\begin{array}{cc}0 &amp; \frac{1}{\theta} f^{\prime \prime}\left(k^{*}\right) c^{*} \\ -1 &amp; \beta\end{array}\right]\left[\begin{array}{c}c-c^{*} \\ k-k^{*}\end{array}\right]$   </p>
+<p>$\equiv J\left[\begin{array}{c}c-c^{*} \\ k-k^{*}\end{array}\right]$</p>
+<p>特征根的系数矩阵A由解特征方程得出：</p>
+<p>$\operatorname{det}(A-\lambda E)=\left|\begin{array}{cc}0-\lambda &amp; \frac{1}{\theta} f^{\prime \prime}\left(k^{<em>}\right) c^{</em>} \\ -1 &amp; \beta-\lambda\end{array}\right|$<br>=$\lambda^{2}-\beta \lambda+\frac{1}{\theta} f^{\prime \prime}\left(k^{<em>}\right) c^{</em>}=0$</p>
+<p>$\Rightarrow \lambda_{1,2}=\frac{1}{2}\left[\beta \pm \sqrt{\beta^{2}-\frac{4}{\theta} f^{\prime \prime}\left(k^{<em>}\right) c^{</em>}}\right]$</p>
+<p>其中一个根为正，一个根为负，正根是不稳定的，负根是稳定的。稳定根的个数正好等于状态变量的个数，所以系统是稳定的，即稳定的稳定性是良好定义的。</p>
+<h2 id="最优增长路径"><a href="#最优增长路径" class="headerlink" title="最优增长路径"></a>最优增长路径</h2><p>当经济达到稳态时，可以求解出稳态时的产出，消费和投资（以单位有效劳动的形式）：</p>
+<p>$k^{<em>}=f^{\prime}(\rho+\theta g+\delta), y^{</em>}=f\left(k^{<em>}\right), c^{</em>}=f\left(k^{<em>}-(n+g+\delta) k^{</em>}\right.$</p>
+<p>那么我们就可以来检验最优增长路径了，通过定义，</p>
+<p>$k(t) A(t)=\frac{K(t)}{L(t)}$,<br>$f(k(t)) A(t)=\frac{Y(t)}{L(t) A(t)}, c(t) A(t)=C(t)$</p>
+<p>有  </p>
+<p><strong>人均变量形式：</strong><br>$k^{<em>} A(t)=\frac{K(t)}{L(t)}, f\left(k^{</em>}\right) A(t)=\frac{Y(t)}{L(t)}, c^{*} A(t)=C(t)$</p>
+<p><strong>总的变量形式：</strong><br>$k^{<em>} A(t) L(t)=K(t), f\left(k^{</em>}\right) A(t) L(t)=Y(t), c^{*} A(t)=C(t)$</p>
+<p>对上式取对数，并关于t求导，便可以求出变量的增长率：</p>
+<p><strong>人均变量：</strong><br>$g_{\frac{K}{L}}^{<em>}=g_{\frac{Y}{L}}^{</em>}=g_{C}^{*}=g$</p>
+<p><strong>总的变量形式：</strong><br>$g_{K}^{<em>}=g_{Y}^{</em>}=g_{C}^{*}=n+g$</p>
 
       
     </div>
@@ -1551,14 +1567,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">84k</span>
+    <span title="站点总字数">85k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:16</span>
+    <span title="站点阅读时长">1:17</span>
   </span>
 </div>
 
