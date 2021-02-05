@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"dieineutopia.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+  </script>
+<meta name="description" content="配置插件安装Hexo默认Mathjax渲染插件Marked根目录下运行:   npm install hexo-math --save 用Kramed替换MarkedMarked引擎是Hexo默认的渲染引擎，Kramed在此基础上修复了部分bug（但仍存在一些问题） 首先卸载Marked，根目录下运行：   npm uninstall hexo-renderer-marked --save 然后安">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo中LaTeX无法被正确渲染的解决方案">
+<meta property="og:url" content="https://dieineutopia.github.io/2020/07/02/Hexo%E4%B8%ADLaTeX%E6%97%A0%E6%B3%95%E8%A2%AB%E6%AD%A3%E7%A1%AE%E6%B8%B2%E6%9F%93%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
+<meta property="og:site_name" content="DieinEutopia">
+<meta property="og:description" content="配置插件安装Hexo默认Mathjax渲染插件Marked根目录下运行:   npm install hexo-math --save 用Kramed替换MarkedMarked引擎是Hexo默认的渲染引擎，Kramed在此基础上修复了部分bug（但仍存在一些问题） 首先卸载Marked，根目录下运行：   npm uninstall hexo-renderer-marked --save 然后安">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-02T07:04:35.000Z">
+<meta property="article:modified_time" content="2021-02-05T10:01:07.605Z">
+<meta property="article:author" content="DieinEutopia">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="LaTeX">
+<meta property="article:tag" content="Mathjax">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://dieineutopia.github.io/2020/07/02/Hexo%E4%B8%ADLaTeX%E6%97%A0%E6%B3%95%E8%A2%AB%E6%AD%A3%E7%A1%AE%E6%B8%B2%E6%9F%93%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>Hexo中LaTeX无法被正确渲染的解决方案 | DieinEutopia</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DieinEutopia</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一刀可将生命断，万枪难使真理屈</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%8F%92%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">配置插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Hexo%E9%BB%98%E8%AE%A4Mathjax%E6%B8%B2%E6%9F%93%E6%8F%92%E4%BB%B6Marked"><span class="nav-number">1.1.</span> <span class="nav-text">安装Hexo默认Mathjax渲染插件Marked</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8Kramed%E6%9B%BF%E6%8D%A2Marked"><span class="nav-number">1.2.</span> <span class="nav-text">用Kramed替换Marked</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%BE%E5%BC%83%E4%BD%BF%E7%94%A8hexo-math"><span class="nav-number">1.3.</span> <span class="nav-text">放弃使用hexo-math</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E8%AF%AD%E4%B9%89%E5%86%B2%E7%AA%81%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">解决语义冲突的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">更改配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E7%BC%96%E8%BE%91"><span class="nav-number">4.</span> <span class="nav-text">文章编辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">5.</span> <span class="nav-text">测试</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DieinEutopia"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">DieinEutopia</p>
+  <div class="site-description" itemprop="description">Record & Backup</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:DieinEutopia1999@protonmail.com" title="E-Mail → mailto:DieinEutopia1999@protonmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dieineutopia.github.io/2020/07/02/Hexo%E4%B8%ADLaTeX%E6%97%A0%E6%B3%95%E8%A2%AB%E6%AD%A3%E7%A1%AE%E6%B8%B2%E6%9F%93%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="DieinEutopia">
+      <meta itemprop="description" content="Record & Backup">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DieinEutopia">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo中LaTeX无法被正确渲染的解决方案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-02 15:04:35" itemprop="dateCreated datePublished" datetime="2020-07-02T15:04:35+08:00">2020-07-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="配置插件"><a href="#配置插件" class="headerlink" title="配置插件"></a>配置插件</h2><h3 id="安装Hexo默认Mathjax渲染插件Marked"><a href="#安装Hexo默认Mathjax渲染插件Marked" class="headerlink" title="安装Hexo默认Mathjax渲染插件Marked"></a>安装Hexo默认Mathjax渲染插件Marked</h3><p>根目录下运行:  </p>
+<pre><code>npm install hexo-math --save
+</code></pre><h3 id="用Kramed替换Marked"><a href="#用Kramed替换Marked" class="headerlink" title="用Kramed替换Marked"></a>用Kramed替换Marked</h3><p>Marked引擎是Hexo默认的渲染引擎，Kramed在此基础上修复了部分bug（但仍存在一些问题）</p>
+<p>首先卸载Marked，根目录下运行：  </p>
+<pre><code>npm uninstall hexo-renderer-marked --save
+</code></pre><p>然后安装Kramed，根目录下运行：</p>
+<pre><code>npm install hexo-renderer-kramed --save
+</code></pre><h3 id="放弃使用hexo-math"><a href="#放弃使用hexo-math" class="headerlink" title="放弃使用hexo-math"></a>放弃使用hexo-math</h3><p>这个包已经被deprecated,不再被使用，故选择使用更新的包</p>
+<p>根目录下分别运行：</p>
+<pre><code>npm uninstall hexo-math --save
+npm install hexo-renderer-mathjax --save
+</code></pre><h2 id="解决语义冲突的问题"><a href="#解决语义冲突的问题" class="headerlink" title="解决语义冲突的问题"></a>解决语义冲突的问题</h2><p>由于LaTeX与markdown语法有语义冲突，例如可用<code>\*</code> 表示斜体或加粗，可用 <code>\_</code> 表示斜体，所以在此需要修改变量，将 <code>_</code> 用于LaTeX，而保留使用 <code>*</code> 表示markdown中的斜体和加粗。</p>
+<p>在根目录下进入 <code>node_modules\kramed\lib\rules\inline.js</code></p>
+<p>修改第11行escape变量的值（在原基础上取消了对，{，}的转义），如下：</p>
+<pre><code>escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/, #原值 
+
+escape: /^\\([`*\[\]()#$+\-.!_&gt;])/, #复制本行内容替换之
+</code></pre><p>修改第20行em变量的值，如下：</p>
+<pre><code>//  em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/, #原值
+
+em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/, #复制本行内容替换之
+</code></pre><h2 id="更改配置文件"><a href="#更改配置文件" class="headerlink" title="更改配置文件"></a>更改配置文件</h2><p>进入根目录的 <code>_config.yml</code> ，将mathjax默认的 <code>False</code> 修改为 <code>True</code>，并更换CDN的URL，如下：</p>
+<pre><code># MathJax Support
+mathjax:
+enable: true
+per_page: true
+#cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML
+cdn: //cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+</code></pre><h2 id="文章编辑"><a href="#文章编辑" class="headerlink" title="文章编辑"></a>文章编辑</h2><p>在需要用LaTeX渲染的文章前（即Front-matter）打开mathjax开关，如下：</p>
+<pre><code>---
+title:
+date: 
+tags:
+mathjax: true #复制于此
+</code></pre><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>在编辑软件中输入以下内容：</p>
+<pre><code>$\left[\begin&#123;array&#125;&#123;c&#125;c^&#123;\prime&#125;(t) \\ k^&#123;\prime&#125;(t)\end&#123;array&#125;\right]=\left[\begin&#123;array&#125;&#123;cc&#125;0 &amp; \frac&#123;1&#125;&#123;\theta&#125; f^&#123;\prime \prime&#125;\left(k^&#123;\*&#125;\right) c^&#123;\*&#125; \\ -1 &amp; \beta\end&#123;array&#125;\right]\left[\begin&#123;array&#125;&#123;c&#125;c-c^&#123;\*&#125; \\ k-k^&#123;\*&#125;\end&#123;array&#125;\right]$
+</code></pre><p>渲染结果：</p>
+<p>$\left[\begin{array}{c}c^{\prime}(t) \\ k^{\prime}(t)\end{array}\right]=\left[\begin{array}{cc}0 &amp; \frac{1}{\theta} f^{\prime \prime}\left(k^{*}\right) c^{*} \\ -1 &amp; \beta\end{array}\right]\left[\begin{array}{c}c-c^{*} \\ k-k^{*}\end{array}\right]$  </p>
+<p>输出效果很nice </p>
+<p><strong>（ 注意：由于语义冲突，故必须在每个 <code>*</code> 前加上转义符 <code>\</code> , 即 <code>\*</code> )</strong></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/LaTeX/" rel="tag"># LaTeX</a>
+              <a href="/tags/Mathjax/" rel="tag"># Mathjax</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/05/23/%E5%85%B3%E4%BA%8E%E6%9C%9D%E4%BF%AE%E9%9B%86%E5%9B%A2/" rel="prev" title="关于朝修集团的一些资料">
+                  <i class="fa fa-chevron-left"></i> 关于朝修集团的一些资料
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/12/22/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%80%E6%BA%90%E9%94%99%E5%A4%B1%E4%BA%86%E8%87%AA%E7%94%B1%E8%BD%AF%E4%BB%B6%E7%9A%84%E9%87%8D%E7%82%B9/" rel="next" title="为什么开源错失了自由软件的重点">
+                  为什么开源错失了自由软件的重点 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DieinEutopia</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+  
+
+
+
+
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'none'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+</body>
+</html>
