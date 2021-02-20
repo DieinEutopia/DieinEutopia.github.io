@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"dieineutopia.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+  </script>
+<meta name="description" content="稳态的存在性定义稳态为 $\left(c^{*}, k^{*}\right)$, 满足 $c^{\prime}(t)&#x3D;0$, $\quad k^{\prime}(t)&#x3D;0$ 即   $\frac{1}{\theta}\left[f^{\prime}\left(k^{*}\right)-(\rho+\theta g+\delta)\right]c^{*}&#x3D;0$   $f\left(k^{*}\rig">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RCK模型-经济的稳态和最优增长路径">
+<meta property="og:url" content="https://dieineutopia.github.io/548832568/index.html">
+<meta property="og:site_name" content="DieinEutopia">
+<meta property="og:description" content="稳态的存在性定义稳态为 $\left(c^{*}, k^{*}\right)$, 满足 $c^{\prime}(t)&#x3D;0$, $\quad k^{\prime}(t)&#x3D;0$ 即   $\frac{1}{\theta}\left[f^{\prime}\left(k^{*}\right)-(\rho+\theta g+\delta)\right]c^{*}&#x3D;0$   $f\left(k^{*}\rig">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-02-05T03:22:30.596Z">
+<meta property="article:modified_time" content="2021-02-14T07:04:43.643Z">
+<meta property="article:author" content="DieinEutopia">
+<meta property="article:tag" content="宏观经济学">
+<meta property="article:tag" content="最优经济增长模型">
+<meta property="article:tag" content="RCK模型">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://dieineutopia.github.io/548832568/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>RCK模型-经济的稳态和最优增长路径 | DieinEutopia</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DieinEutopia</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一刀可将生命断，万枪难使真理屈</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-笔记"><a href="/%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-book fa-fw"></i>笔记</a></li>
+        <li class="menu-item menu-item-资料"><a href="/%E8%B5%84%E6%96%99/" rel="section"><i class="fa fa-file fa-fw"></i>资料</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%B3%E6%80%81%E7%9A%84%E5%AD%98%E5%9C%A8%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">稳态的存在性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%B3%E6%80%81%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">稳态的稳定性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E4%BC%98%E5%A2%9E%E9%95%BF%E8%B7%AF%E5%BE%84"><span class="nav-number">3.</span> <span class="nav-text">最优增长路径</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DieinEutopia"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">DieinEutopia</p>
+  <div class="site-description" itemprop="description">Record & Backup</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">72</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:DieinEutopia1999@protonmail.com" title="E-Mail → mailto:DieinEutopia1999@protonmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dieineutopia.github.io/548832568/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="DieinEutopia">
+      <meta itemprop="description" content="Record & Backup">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DieinEutopia">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          RCK模型-经济的稳态和最优增长路径
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-02-05 11:22:30" itemprop="dateCreated datePublished" datetime="2021-02-05T11:22:30+08:00">2021-02-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+
+              
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="稳态的存在性"><a href="#稳态的存在性" class="headerlink" title="稳态的存在性"></a>稳态的存在性</h2><p>定义稳态为 $\left(c^{*}, k^{*}\right)$, 满足 $c^{\prime}(t)=0$, $\quad k^{\prime}(t)=0$ 即  </p>
+<p>$\frac{1}{\theta}\left[f^{\prime}\left(k^{*}\right)-(\rho+\theta g+\delta)\right]c^{*}=0$  </p>
+<p>$f\left(k^{*}\right)=c^{*}+(n+g+\delta) k^{*}$</p>
+<p>这两个式子明显可以求出一个非零解，故稳态存在。</p>
+<h2 id="稳态的稳定性"><a href="#稳态的稳定性" class="headerlink" title="稳态的稳定性"></a>稳态的稳定性</h2><p>动态系统的解的稳定性一般有两种方法，一种是几何法，即根据动态系统方程作出相形图；第二种是泰勒展开，线性逼近。（以线性化方法为例）</p>
+<p>一阶泰勒展开：  </p>
+<p>$c^{\prime}(t)=\frac{1}{\theta}\left[f^{\prime}(k(t))-(\rho+\theta g+\delta)\right] c(t) \equiv \phi(c, k)$  </p>
+<p>$\simeq \phi\left(c^{*}, k^{*}\right)+\phi_{c}\left(c^{*}, k^{*}\right)\left(c-c^{*}\right)$<br>+$\phi_{k}\left(c^{*}, k^{*}\right)\left(k-k^{*}\right)$  </p>
+<p>$=0+\underbrace{\frac{1}{\theta}\left[f^{\prime}\left(k^{*}\right)-(\rho+\theta g +\delta)\right]}\left(c-c^{*}\right)$ </p>
+<p>+$\frac{1}{\theta} f^{\prime \prime}\left(k^{*}\right) c^{*}\left(k-k^{*}\right)$  </p>
+<p>$=0\left(c-c^{*}\right)+\frac{1}{\theta} f^{\prime\prime}\left(k^{*}\right) c^{*}\left(k-k^{*}\right)$ </p>
+<p>这两个方程可简化由矩阵表示：  </p>
+<p>$\left[\begin{array}{c}c^{\prime}(t) \\ k^{\prime}(t)\end{array}\right]=\left[\begin{array}{cc}0 &amp; \frac{1}{\theta} f^{\prime \prime}\left(k^{*}\right) c^{*} \\ -1 &amp; \beta\end{array}\right]\left[\begin{array}{c}c-c^{*} \\ k-k^{*}\end{array}\right]$   </p>
+<p>$\equiv J\left[\begin{array}{c}c-c^{*} \\ k-k^{*}\end{array}\right]$</p>
+<p>特征根的系数矩阵A由解特征方程得出：</p>
+<p>$\operatorname{det}(A-\lambda E)=\left|\begin{array}{cc}0-\lambda &amp; \frac{1}{\theta} f^{\prime \prime}\left(k^{*}\right) c^{*} \\ -1 &amp; \beta-\lambda\end{array}\right|$<br>=$\lambda^{2}-\beta \lambda+\frac{1}{\theta} f^{\prime \prime}\left(k^{*}\right) c^{*}=0$</p>
+<p>$\Rightarrow \lambda_{1,2}=\frac{1}{2}\left[\beta \pm \sqrt{\beta^{2}-\frac{4}{\theta} f^{\prime \prime}\left(k^{*}\right) c^{*}}\right]$</p>
+<p>其中一个根为正，一个根为负，正根是不稳定的，负根是稳定的。稳定根的个数正好等于状态变量的个数，所以系统是稳定的，即稳定的稳定性是良好定义的。</p>
+<h2 id="最优增长路径"><a href="#最优增长路径" class="headerlink" title="最优增长路径"></a>最优增长路径</h2><p>当经济达到稳态时，可以求解出稳态时的产出，消费和投资（以单位有效劳动的形式）：</p>
+<p>$k^{*}=f^{\prime}(\rho+\theta g+\delta)$, </p>
+<p>$y^{*}=f\left(k^{*}\right)$, </p>
+<p>$c^{*}=f\left(k^{*}-(n+g+\delta) k^{*}\right.$</p>
+<p>那么我们就可以来检验最优增长路径了，通过定义，</p>
+<p>$k(t) A(t)=\frac{K(t)}{L(t)}$,</p>
+<p>$f(k(t)) A(t)=\frac{Y(t)}{L(t) A(t)}, c(t) A(t)=C(t)$</p>
+<p>有  </p>
+<p><strong>人均变量形式：</strong><br>$k^{*} A(t)=\frac{K(t)}{L(t)}, f\left(k^{*}\right) A(t)=\frac{Y(t)}{L(t)}, c^{*} A(t)=C(t)$</p>
+<p><strong>总的变量形式：</strong><br>$k^{*} A(t) L(t)=K(t), f\left(k^{*}\right) A(t) L(t)=Y(t)$,   </p>
+<p>$c^{*} A(t)=C(t)$</p>
+<p>对上式取对数，并关于t求导，便可以求出变量的增长率：</p>
+<p><strong>人均变量：</strong><br>$g_{\frac{K}{L}}^{*}=g_{\frac{Y}{L}}^{*}=g_{C}^{*}=g$</p>
+<p><strong>总的变量形式：</strong><br>$g_{K}^{*}=g_{Y}^{*}=g_{C}^{*}=n+g$</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 宏观经济学</a>
+              <a href="/tags/%E6%9C%80%E4%BC%98%E7%BB%8F%E6%B5%8E%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8B/" rel="tag"><i class="fa fa-tag"></i> 最优经济增长模型</a>
+              <a href="/tags/RCK%E6%A8%A1%E5%9E%8B/" rel="tag"><i class="fa fa-tag"></i> RCK模型</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/TheCommunistManifesto/" rel="prev" title="共产党宣言">
+                  <i class="fa fa-chevron-left"></i> 共产党宣言
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/1350299839/" rel="next" title="对佳士劳工组织策略的简要总结">
+                  对佳士劳工组织策略的简要总结 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DieinEutopia</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+  
+
+
+
+
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'none'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+</body>
+</html>
